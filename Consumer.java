@@ -10,14 +10,18 @@ public class Consumer implements Runnable{
 	public void run(){
 		String message=null;
 		boolean flag=true;
-		while(flag!=false)
-		{
-			message = box.take();
-			if(message.equals("done"))
+		System.out.println("run in Consumer");
+		//while(flag!=false)
+		//{
+			//message = box.take();
+			//if(message.equals("done"))
+			while(!(message=box.take()).equals("done"))
 			{
+				System.out.println("In consumer while loop started");
 				System.out.println(message);
-				flag=false;
-			}
+				System.out.println("AFter printing in Consumer");
+				//flag=false;
+			
 			try{
 				
 				Thread.sleep(2000);
